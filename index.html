@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Gym - Transform Your Body</title>
+
+    <style>
+        /* --- Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fcfcfc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: #111;
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        nav h1 {
+            font-size: 24px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        nav h1 span {
+            color: #ff6600; /* High-energy fitness orange */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav li {
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        nav li:hover {
+            color: #ff6600;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b") center/cover no-repeat;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        /* --- Search Bar --- */
+        .search {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search input:focus {
+            border-color: #ff6600;
+        }
+
+        /* --- Programs Layout (Modern Grid) --- */
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ff6600;
+            margin: 8px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* --- About Section --- */
+        .about {
+            background: #f0f0f0;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 20px auto 0 auto;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* --- Contact / Footer --- */
+        .contact {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .contact h2 {
+            font-size: 28px;
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .quote {
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            color: #aaa;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>FITLIFE <span>GYM</span></h1>
+    <ul>
+        <li>Home</li>
+        <li>Programs</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>Transform Your Body</h1>
+    <p>Join the best fitness community and achieve your dream physique.</p>
+</div>
+
+<div class="search">
+    <div class="search-wrapper">
+        <input type="text" placeholder="Search Fitness Programs...">
+    </div>
+</div>
+
+<div class="programs-container">
+    <h2 class="section-title">Our Programs</h2>
+    
+    <div class="programs-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" alt="Weight Training">
+            <div class="card-content">
+                <h3>Weight Training</h3>
+                <p>Build muscle and increase strength with professional guidance.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a" alt="Cardio Fitness">
+            <div class="card-content">
+                <h3>Cardio Fitness</h3>
+                <p>Improve stamina and heart health through intense cardio workouts.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" alt="Yoga Classes">
+            <div class="card-content">
+                <h3>Yoga Classes</h3>
+                <p>Enhance flexibility, body balance, and serene mental wellness.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+        FitLife Gym is dedicated to helping people achieve their fitness goals.
+        We provide modern premium equipment, expert trainers, and customized workout
+        plans tailored for all fitness levels.
+    </p>
+</div>
+
+<div class="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-details">
+        <p>📞 +91 98765 43210</p>
+        <p>✉ fitlifegym@gmail.com</p>
+    </div>
+    <p class="quote">"Fitness is not about being better than someone else. It's about being better than you used to be."</p>
+</div>
+
+</body>
+</html>
